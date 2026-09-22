@@ -140,21 +140,21 @@ function render() {
 }
 
 function paintAttendance() {
-  const q=($(#aq)?.value||"").toLowerCase();
+  const q=($("#aq")?.value||"").toLowerCase();
   const d=$("#date")?.value||today(), sub=$("#subject")?.value||"";
   const rows=attendance.filter(a=>a.date===d&&(!sub||a.subject===sub)&&String(a.name).toLowerCase().includes(q)).reverse();
   $("#attendanceRows").innerHTML=rows.map(a=>`<tr><td>${esc(a.time)}</td><td><strong>${esc(a.name)}</strong></td><td>${esc(a.class)}</td><td>${esc(a.subject)}</td><td><label class="badge ${String(a.status).toLowerCase()}">${esc(a.status)}</label></td><td>${esc(a.note)||"—"}</td></tr>`).join("")||"<tr><td colspan='6' class='empty'>Belum ada data.</td></tr>";
 }
 
 function paintStudents() {
-  const q=($(#sq)?.value||"").toLowerCase();
+  const q=($("#sq")?.value||"").toLowerCase();
   const list=students.filter(s=>s.active!==false&&(s.name+s.nis+s.class).toLowerCase().includes(q));
   $("#studentGrid").innerHTML=list.map(s=>`<article class="student"><div class="qr" id="qr-${esc(s.id)}"></div><h3>${esc(s.name)}</h3><p>${esc(s.class)} · NIS ${esc(s.nis)}</p><code>${esc(s.id)}</code></article>`).join("")||"<p class='empty'>Belum ada siswa.</p>";
   if(qrReady&&window.QRCode) list.forEach(s=>{const el=$(`#qr-${CSS.escape(s.id)}`);if(el)new QRCode(el,{text:s.nis,width:128,height:128,correctLevel:QRCode.CorrectLevel.M});});
 }
 
 function filteredReports() {
-  const from=$("#fromDate")?.value||"0000-00-00", to=$("#toDate")?.value||"9999-99-99", status=$("#reportStatus")?.value||"", sub=$("#reportSubject")?.value||"", q=($(#reportStudent)?.value||"").toLowerCase();
+  const from=$("#fromDate")?.value||"0000-00-00", to=$("#toDate")?.value||"9999-99-99", status=$("#reportStatus")?.value||"", sub=$("#reportSubject")?.value||"", q=($("#reportStudent")?.value||"").toLowerCase();
   return [...attendance].filter(a=>a.date>=from&&a.date<=to&&(!status||a.status===status)&&(!sub||a.subject===sub)&&(!q||(a.name+a.nis).toLowerCase().includes(q))).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
 }
 function paintReports() {
