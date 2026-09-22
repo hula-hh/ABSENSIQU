@@ -7,8 +7,29 @@ const demoStudents = [
 
 let students = JSON.parse(localStorage.getItem("absensiqu_students") || "null") || demoStudents;
 let attendance = JSON.parse(localStorage.getItem("absensiqu_attendance") || "[]");
-let subjects = JSON.parse(localStorage.getItem("absensiqu_subjects") || "null") ||
-  ["Matematika", "Bahasa Indonesia", "Bahasa Inggris", "Fisika", "Biologi"];
+const defaultSubjects = [
+  "Matematika",
+  "Bahasa Indonesia",
+  "Bahasa Inggris",
+  "PKN",
+  "Ekonomi",
+  "Bahasa Mandarin",
+  "Sejarah",
+  "Fisika",
+  "Kimia",
+  "Biologi",
+  "IPA",
+  "IPS",
+  "Informatika",
+  "Seni Budaya",
+  "PJOK",
+  "Agama",
+  "Sosiologi",
+  "Geografi",
+  "Prakarya",
+  "Bahasa Jepang"
+];
+let subjects = JSON.parse(localStorage.getItem("absensiqu_subjects") || "null") || defaultSubjects;
 let page = location.hash.slice(1) || "dashboard";
 let scanner = null;
 let scanLocked = false;
