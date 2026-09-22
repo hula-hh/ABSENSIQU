@@ -1,6 +1,27 @@
 # ABSENSIQU
-Sistem absensi modern dan responsive.
 
-Fitur: dashboard, absensi manual, status Hadir/Terlambat/Izin/Sakit/Alpha, anti-duplikasi, data siswa, rekap, export CSV, dark mode, dan integrasi Google Sheets melalui Google Apps Script.
+Sistem absensi sekolah berbasis QR dengan dashboard, data siswa, rekap, export CSV, dark mode, dan sinkronisasi Google Sheets melalui Google Apps Script.
 
-Buka index.html dengan Live Server untuk mencoba. Setup Google Sheets ada di google-apps-script/SETUP.md.
+## Fitur
+
+- Dashboard kehadiran hari ini
+- Scan QR siswa melalui kamera
+- QR siswa otomatis dibuat dari NIS
+- Anti-duplikasi per **tanggal + mata pelajaran + siswa**
+- Status Hadir, Terlambat, Izin, Sakit, Alpha
+- Data master siswa
+- Rekap kehadiran dengan filter
+- Export CSV
+- Dark mode
+- Sinkronisasi ke Google Sheets
+- Backend Apps Script dengan validasi dan locking untuk mencegah race condition
+
+## Menjalankan
+
+Buka `index.html` menggunakan Live Server atau host HTTPS agar akses kamera browser dapat digunakan.
+
+## Google Sheets
+
+Ikuti panduan lengkap di `google-apps-script/SETUP.md`.
+
+> Jangan masukkan secret/service-account key ke frontend.
