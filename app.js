@@ -145,7 +145,17 @@ function settingsPage() {
 }
 
 function render() {
-  ({ dashboard, attendance: attendancePage, students: studentsPage, reports: reportsPage, settings: settingsPage }[page] || dashboard)();
+  const renderer =
+    {
+      dashboard,
+      attendance: attendancePage,
+      students: studentsPage,
+      reports: reportsPage,
+      settings: settingsPage
+    }[page] || dashboard;
+
+  document.querySelector("#app").innerHTML = renderer();
+
   if (page === "attendance") paintAttendance();
   if (page === "students") paintStudents();
 }
