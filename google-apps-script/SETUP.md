@@ -34,7 +34,7 @@ Gunakan:
 
 Lalu salin URL yang berakhiran `/exec`.
 
-Google Apps Script Web Apps menjalankan `doGet` untuk GET dan `doPost` untuk POST request. citeturn0search3turn0search0
+Google Apps Script Web Apps menjalankan `doGet` untuk GET dan `doPost` untuk POST request.
 
 ## 4. Hubungkan ke ABSENSIQU
 
@@ -58,4 +58,4 @@ Setelah itu coba:
 
 Jangan menaruh service-account key, password, atau secret Google di frontend.
 
-Jika Web App dijalankan sebagai pemilik script, request dapat menggunakan otorisasi pemilik script sesuai konfigurasi deployment. Karena itu, batasi URL Web App dan akses spreadsheet dengan hati-hati. citeturn0search4turn0search6
+Jika Web App dijalankan sebagai pemilik script, request dapat menggunakan otorisasi pemilik script sesuai konfigurasi deployment. Karena itu, batasi URL Web App dan akses spreadsheet dengan hati-hati.
